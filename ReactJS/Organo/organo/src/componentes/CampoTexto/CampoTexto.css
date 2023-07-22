@@ -1,14 +1,14 @@
 .campo-texto {
     margin: 24px 0;
 }
-.campo-texto label {
+label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom:.5em;
     font-size: 1.5rem;
 }
-.campo-texto input {
+.campo-texto input, select {
     background-color: white;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0px 5px 20px rgba(17, 17, 17, 0.089);
     width: 100%;
     border: none;
     padding: 1.5em;

@@ -1,15 +1,13 @@
 
-import Banner from './componentes/Banner';
-import CampoTexto from './componentes/CampoTexto';
+import Banner from './componentes/Banner'
+import Formulario from "./componentes/Formulario"
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Banner/>
-      <CampoTexto label="Nome"/>
-      <CampoTexto label="Cargo"/>
-      <CampoTexto label="Imagem"/>
-     
+      <Formulario/>
+      
     </div>
   );
 }
