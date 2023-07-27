@@ -4,11 +4,20 @@ import ListaSuspensa from "../ListaSuspensa"
 import React from "react"
 import "./Formulario.css"
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const aoSalvar = (e) => {
         e.preventDefault()
-        console.log(nome,cargo,imagem,time)
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
+        setNome("")
+        setCargo("")
+        setImagem("")
+        setTime("")
     }
 
     const [nome, setNome] = React.useState('')
@@ -47,7 +56,7 @@ const Formulario = () => {
                 label="Time" 
                 valor={time}
                 aoAlterado={valor => setTime(valor)}
-                itens={["Oi","Opa"]} />
+                itens={props.timeLista} />
 
             <Botao>
                 Criar Card
