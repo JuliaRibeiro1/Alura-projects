@@ -9,30 +9,23 @@ const Formulario = (props) => {
     const aoSalvar = (e) => {
         e.preventDefault()
         props.aoColaboradorCadastrado({
+            key:nome,
             nome,
             cargo,
             imagem,
-            time,
-            timeAlternativo
-           
+            time
+        
+            
         })
 
-        props.setTimes(prev => {
-
-            const timeExiste = prev.some(item => item.nome === timeAlternativo);
-
-            if (timeExiste) {
-              return prev;
-            } else {
-              return [...prev, {
-                nome: timeAlternativo,
-                corPrimaria: '#FEB2F5',
-                corSecundaria: '#FFFF'
-              }];
-            }
-          });
-
-          console.log(props.setTimes)
+        props.setNovoTime(
+                    {
+                      nome: timeAlternativo,
+                      corPrimaria: '#FEB2F5',
+                      corSecundaria: '#FFFF'
+                    }
+        )          
+        
         setNome("")
         setCargo("")
         setImagem("")
@@ -48,14 +41,7 @@ const Formulario = (props) => {
     const [time,setTime] = React.useState("")
     const [timeAlternativo, setTimeAlternativo] = React.useState("")
     
-   /* const isFound = props.timeLista.map(element => {
-        if (element.nome === timeAlternativo) {
-            console.log("Oi")
-          return true;
-        }
-    
-        return false;
-      });*/
+
 
     return (
         <section className="formulario">
@@ -91,14 +77,14 @@ const Formulario = (props) => {
                 itens={props.timeLista} 
             />
 
-            {time === "Outro" && 
+            {time === "Outro" ?  
             <CampoTexto 
                 obrigatorio={true} 
                 label="Digite o time" 
                 valor={timeAlternativo}
                 placeholder="Digite o time"
                 aoAlterado={valor => setTimeAlternativo(valor)}
-            />}
+            /> : ""} 
 
             <Botao>
                 Criar Card

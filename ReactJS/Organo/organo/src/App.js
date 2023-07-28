@@ -9,23 +9,29 @@ function App() {
 
  const [colaboradores,setColaboradores] = React.useState([])
 
+ const [novoTime, setNovoTime] = React.useState({});
+
 const [times, setTimes] = React.useState([
   {
+   
     nome: 'Front-End',
     corPrimaria: '#82CFFA',
     corSecundaria: '#E8F8FF',
   },
   {
+
     nome: 'Data Sciense',
     corPrimaria: '#A6D157',
     corSecundaria: '#F0F8E2',
   },
   {
+  
     nome: 'Devops',
     corPrimaria: '#E06B69',
     corSecundaria: '#FDE7E8',
   },
   {
+
     nome: 'UX e Design',
     corPrimaria: '#D86EBF',
     corSecundaria: '#FAE5F5',
@@ -47,22 +53,45 @@ const [times, setTimes] = React.useState([
   }
 ])
  
+React.useEffect(() => {
+  console.log("OI")
+ //setTimes(prev => [...prev,novoTime])
+
+ setTimes(prev => {
+  const timeExiste = prev.some(item => item.nome === novoTime.nome);
+//console.log(timeExiste)
+  if (!timeExiste && novoTime.nome ) {
+  
+    return [
+      ...prev,
+      novoTime
+    ];
+  }
+  else {
+    return prev
+  }
+
+})
+
+},[novoTime])
 
 const timeNomes = times.map(item => {
   return item.nome
 })
 
-console.log(colaboradores)
+
   return (
     <div className="App">
       <Banner/>
-     <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} setTimes={setTimes} />
-      {times.map(time => {
-           console.log(colaboradores)
+     <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} setTimes={timeNomes} setNovoTime={setNovoTime}/>
+      {times.map((time,index) => {
+
+       const nome = time.nome === "Outro" ?  novoTime.nome : time.nome
+ 
         return ( 
          <Time 
-            key={time.nome}
-            nome={time.nome === "Outro" ? "oii" : time.nome}
+            key={index}
+            nome={time.nome === "Outro" ?  novoTime.nome : time.nome}
             corPrimaria={time.corPrimaria}
             corSecundaria={time.corSecundaria}
             colaboradores={colaboradores.filter(item => item.time === time.nome)}

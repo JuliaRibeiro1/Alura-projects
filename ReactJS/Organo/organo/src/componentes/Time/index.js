@@ -3,7 +3,6 @@ import Colaborador from "../Colaborador"
 import "./Time.css"
 
 const Time = (props) => {
-console.log(props.nome)
 
     return (
     props.colaboradores.length > 0 ?  <section className="time" style={{backgroundColor: props.corSecundaria}}>
