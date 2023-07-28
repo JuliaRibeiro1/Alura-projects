@@ -5,25 +5,57 @@ import React from "react"
 import "./Formulario.css"
 
 const Formulario = (props) => {
-
+  
     const aoSalvar = (e) => {
         e.preventDefault()
         props.aoColaboradorCadastrado({
             nome,
             cargo,
             imagem,
-            time
+            time,
+            timeAlternativo
+           
         })
+
+        props.setTimes(prev => {
+
+            const timeExiste = prev.some(item => item.nome === timeAlternativo);
+
+            if (timeExiste) {
+              return prev;
+            } else {
+              return [...prev, {
+                nome: timeAlternativo,
+                corPrimaria: '#FEB2F5',
+                corSecundaria: '#FFFF'
+              }];
+            }
+          });
+
+          console.log(props.setTimes)
         setNome("")
         setCargo("")
         setImagem("")
         setTime("")
+        setTimeAlternativo("")
+        console.log(timeAlternativo)
+
     }
 
     const [nome, setNome] = React.useState('')
     const [cargo, setCargo] = React.useState('')
     const [imagem, setImagem] = React.useState('')
     const [time,setTime] = React.useState("")
+    const [timeAlternativo, setTimeAlternativo] = React.useState("")
+    
+   /* const isFound = props.timeLista.map(element => {
+        if (element.nome === timeAlternativo) {
+            console.log("Oi")
+          return true;
+        }
+    
+        return false;
+      });*/
 
     return (
         <section className="formulario">
@@ -56,7 +88,17 @@ const Formulario = (props) => {
                 label="Time" 
                 valor={time}
                 aoAlterado={valor => setTime(valor)}
-                itens={props.timeLista} />
+                itens={props.timeLista} 
+            />
+
+            {time === "Outro" && 
+            <CampoTexto 
+                obrigatorio={true} 
+                label="Digite o time" 
+                valor={timeAlternativo}
+                placeholder="Digite o time"
+                aoAlterado={valor => setTimeAlternativo(valor)}
+            />}
 
             <Botao>
                 Criar Card
