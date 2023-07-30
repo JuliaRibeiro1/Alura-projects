@@ -14,35 +14,35 @@ function App() {
 const [times, setTimes] = React.useState([
   {
    
-    nome: 'Front-End',
+    nome: 'Rock',
     corPrimaria: '#82CFFA',
     corSecundaria: '#E8F8FF',
   },
   {
 
-    nome: 'Data Sciense',
+    nome: 'Metal',
     corPrimaria: '#A6D157',
     corSecundaria: '#F0F8E2',
   },
   {
   
-    nome: 'Devops',
+    nome: 'Rap',
     corPrimaria: '#E06B69',
     corSecundaria: '#FDE7E8',
   },
   {
 
-    nome: 'UX e Design',
+    nome: 'Pop',
     corPrimaria: '#D86EBF',
     corSecundaria: '#FAE5F5',
   },
   {
-    nome: 'Mobile',
+    nome: 'MPB',
     corPrimaria: '#FEBA05',
     corSecundaria: '#FFF5D9',
   },
   {
-    nome: 'Inovação e Gestão',
+    nome: 'Eletrônica',
     corPrimaria: '#FF8A29',
     corSecundaria: '#FFEEDF',
   },
@@ -87,7 +87,7 @@ const timeNomes = times.map(item => {
       {times.map((time,index) => {
 
        const nome = time.nome === "Outro" ?  novoTime.nome : time.nome
- 
+ //ADICONAR LAGO QUANDPO NÃO TEM NENHUM TIME AINDA
         return ( 
          <Time 
             key={index}

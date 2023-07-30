@@ -46,32 +46,31 @@ const Formulario = (props) => {
     return (
         <section className="formulario">
             <form onSubmit={aoSalvar}>
-            <h2>Preencha os dados para criar o card do personagem</h2>
+            <h2>Preencha os dados para criar o card da banda ou cantor(a)</h2>
             <CampoTexto 
                 obrigatorio={true}
                 label="Nome"
                 valor={nome}
-                placeholder="Digite seu nome"
+                placeholder="Lana Del Rey"
                 aoAlterado={valor => setNome(valor)}
                 />
 
             <CampoTexto 
-                obrigatorio={true} 
-                label="Cargo" 
+                label="Música preferida" 
                 valor={cargo}
-                placeholder="Digite seu cargo"
+                placeholder="Serene Queen"
                 aoAlterado={valor => setCargo(valor)}
                 />
             <CampoTexto 
                 obrigatorio={true} 
                 label="Imagem" 
                 valor={imagem}
-                placeholder="Digite o endereço da imagem"
+                placeholder="https://lana.png"
                 aoAlterado={valor => setImagem(valor)}
                 />
 
             <ListaSuspensa 
-                label="Time" 
+                label="Gênero" 
                 valor={time}
                 aoAlterado={valor => setTime(valor)}
                 itens={props.timeLista} 
@@ -80,13 +79,13 @@ const Formulario = (props) => {
             {time === "Outro" ?  
             <CampoTexto 
                 obrigatorio={true} 
-                label="Digite o time" 
+                label="Escreva o gênero" 
                 valor={timeAlternativo}
                 placeholder="Digite o time"
                 aoAlterado={valor => setTimeAlternativo(valor)}
             /> : ""} 
 
-            <Botao>
+            <Botao className="botao">
                 Criar Card
             </Botao>
             </form>
