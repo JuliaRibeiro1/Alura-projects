@@ -17,7 +17,7 @@ const Formulario = (props) => {
         
             
         })
-
+        setTextoButao(prev => !prev)
         props.setNovoTime(
                     {
                       nome: timeAlternativo,
@@ -34,14 +34,20 @@ const Formulario = (props) => {
         console.log(timeAlternativo)
 
     }
-
+    const [textoButao, setTextoButao] = React.useState(false)
     const [nome, setNome] = React.useState('')
     const [cargo, setCargo] = React.useState('')
     const [imagem, setImagem] = React.useState('')
     const [time,setTime] = React.useState("")
     const [timeAlternativo, setTimeAlternativo] = React.useState("")
     
-
+  /*  React.useEffect(()=> {
+        const timer = setTimeout(()=> {
+           setTextoButao(prev => !prev);
+        }, 1000);
+        return ()=> clearTimeout(timer);
+     }, [textoButao])*/
+     
 
     return (
         <section className="formulario">
@@ -86,7 +92,7 @@ const Formulario = (props) => {
             /> : ""} 
 
             <Botao className="botao">
-                Criar Card
+                {textoButao ? "Feito!" : "Criar Card"}
             </Botao>
             </form>
         </section>

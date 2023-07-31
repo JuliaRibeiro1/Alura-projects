@@ -33,18 +33,18 @@ const [times, setTimes] = React.useState([
   {
 
     nome: 'Pop',
-    corPrimaria: '#D86EBF',
-    corSecundaria: '#FAE5F5',
+    corPrimaria: '#5598c2F',
+    corSecundaria: '#336280',
   },
   {
     nome: 'MPB',
-    corPrimaria: '#FEBA05',
-    corSecundaria: '#FFF5D9',
+    corPrimaria: '#1082c9',
+    corSecundaria: '#074d75',
   },
   {
     nome: 'Eletrônica',
-    corPrimaria: '#FF8A29',
-    corSecundaria: '#FFEEDF',
+    corPrimaria: '#3070a1',
+    corSecundaria: 'rgb(16, 51, 78)',
   },
   {
     nome: "Outro",

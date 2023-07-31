@@ -7,9 +7,19 @@ label {
     font-size: 1.5rem;
 }
 .campo-texto input, select {
-    background-color: white;
-    box-shadow: 0px 5px 20px rgba(17, 17, 17, 0.089);
+    background-color: transparent;
     width: 100%;
     border: none;
     padding: 1.5em;
+    outline: 0;
+    border:none;
+    border-bottom: 2px solid #188fff1c;
+    
+    
+}
+select {
+    margin-bottom: 36px;
+}
+input:focus {
+    border-color: #bbeeff;;
 }
