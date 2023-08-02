@@ -10,8 +10,8 @@ const Formulario = (props) => {
         props.setNovoTime(
             {
               nome: timeAlternativo,
-              corPrimaria: '#FEB2F5',
-              corSecundaria: '#23FF'
+              corPrimaria: '#2a628c',
+              corSecundaria: '#1a4463'
             }
 ) 
 

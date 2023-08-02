@@ -21,35 +21,35 @@ const [times, setTimes] = React.useState([
   {
 
     nome: 'Metal',
-    corPrimaria: '#A6D157',
+    corPrimaria: '#88c2e3',
     corSecundaria: 'rgb(26, 59, 94)',
   },
   {
   
     nome: 'Rap',
-    corPrimaria: '#E06B69',
+    corPrimaria: '#acd2e8',
     corSecundaria: 'rgb(22, 65, 97)',
   },
   {
 
     nome: 'Pop',
-    corPrimaria: '#598c2F',
+    corPrimaria: '#78b4d6',
     corSecundaria: 'rgb(20, 61, 92)',
   },
   {
     nome: 'MPB',
-    corPrimaria: '#1082c9',
+    corPrimaria: '#85b1c9',
     corSecundaria: 'rgb(17, 55, 84)',
   },
   {
     nome: 'Eletrônica',
-    corPrimaria: '#3070a1',
+    corPrimaria: '#6dadd1',
     corSecundaria: 'rgb(16, 51, 78)',
   },
   {
     nome: "Outro",
-    corPrimaria: '#FEB2F5',
-    corSecundaria: '#bF3F'
+    /*corPrimaria: '#FEB2F5',
+    corSecundaria: '#bF3F'*/
   }
 ])
  
@@ -78,11 +78,19 @@ const timeNomes = times.map(item => {
   return item.nome
 })
 
-console.log(colaboradores)
+function removeColaborador(i)  {
+
+  const arr = colaboradores.filter((item) => item.key !== i);
+
+  setColaboradores(arr);
+
+};
+
   return (
     <div className="App">
       <Banner/>
      <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} setTimes={timeNomes} setNovoTime={setNovoTime}/>
+      
       {times.map((time) => {
 
         return ( 
@@ -93,6 +101,8 @@ console.log(colaboradores)
             corPrimaria={time.corPrimaria}
             corSecundaria={time.corSecundaria}
             colaboradores={colaboradores.filter(item => item.time === time.nome)}
+            removeColaborador={removeColaborador}
+            
           />
         )
       })}
