@@ -70,10 +70,10 @@ h1,h2 {
 }
 
 .comecar-btn:hover {
-    background: linear-gradient(90deg,#bbeeffc7, rgba(238, 247, 250, 0.795));
+    background: linear-gradient(90deg,#bbeeffdc, rgba(253, 253, 253, 0.925));
     color:rgb(44, 44, 44);
     background-size: 400%;
-    animation: btnHover infinite 3s alternate-reverse;
+    animation: btnHover infinite 2s alternate-reverse;
     border: 0;
    
 }

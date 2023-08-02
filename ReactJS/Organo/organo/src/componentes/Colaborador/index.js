@@ -1,7 +1,7 @@
 import "./Colaborador.css"
 
 const Colaborador = (props) => {
-
+    console.log(props)
     return (
         
         <section className="colaborador">

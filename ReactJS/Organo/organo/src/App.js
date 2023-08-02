@@ -16,30 +16,30 @@ const [times, setTimes] = React.useState([
    
     nome: 'Rock',
     corPrimaria: '#82CFFA',
-    corSecundaria: '#E8F8FF',
+    corSecundaria: 'rgb(23, 61, 97)',
   },
   {
 
     nome: 'Metal',
     corPrimaria: '#A6D157',
-    corSecundaria: '#F0F8E2',
+    corSecundaria: 'rgb(26, 59, 94)',
   },
   {
   
     nome: 'Rap',
     corPrimaria: '#E06B69',
-    corSecundaria: '#FDE7E8',
+    corSecundaria: 'rgb(22, 65, 97)',
   },
   {
 
     nome: 'Pop',
-    corPrimaria: '#5598c2F',
-    corSecundaria: '#336280',
+    corPrimaria: '#598c2F',
+    corSecundaria: 'rgb(20, 61, 92)',
   },
   {
     nome: 'MPB',
     corPrimaria: '#1082c9',
-    corSecundaria: '#074d75',
+    corSecundaria: 'rgb(17, 55, 84)',
   },
   {
     nome: 'Eletrônica',
@@ -54,12 +54,11 @@ const [times, setTimes] = React.useState([
 ])
  
 React.useEffect(() => {
-  console.log("OI")
- //setTimes(prev => [...prev,novoTime])
+
 
  setTimes(prev => {
   const timeExiste = prev.some(item => item.nome === novoTime.nome);
-//console.log(timeExiste)
+
   if (!timeExiste && novoTime.nome ) {
   
     return [
@@ -79,19 +78,18 @@ const timeNomes = times.map(item => {
   return item.nome
 })
 
-
+console.log(colaboradores)
   return (
     <div className="App">
       <Banner/>
      <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} setTimes={timeNomes} setNovoTime={setNovoTime}/>
-      {times.map((time,index) => {
+      {times.map((time) => {
 
-       const nome = time.nome === "Outro" ?  novoTime.nome : time.nome
- //ADICONAR LAGO QUANDPO NÃO TEM NENHUM TIME AINDA
         return ( 
+         
          <Time 
-            key={index}
-            nome={time.nome === "Outro" ?  novoTime.nome : time.nome}
+            key={time.nome}
+            nome={time.nome}
             corPrimaria={time.corPrimaria}
             corSecundaria={time.corSecundaria}
             colaboradores={colaboradores.filter(item => item.time === time.nome)}

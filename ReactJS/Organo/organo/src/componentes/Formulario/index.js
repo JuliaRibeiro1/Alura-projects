@@ -7,31 +7,34 @@ import "./Formulario.css"
 const Formulario = (props) => {
   
     const aoSalvar = (e) => {
+        props.setNovoTime(
+            {
+              nome: timeAlternativo,
+              corPrimaria: '#FEB2F5',
+              corSecundaria: '#23FF'
+            }
+) 
+
         e.preventDefault()
         props.aoColaboradorCadastrado({
             key:nome,
             nome,
             cargo,
             imagem,
-            time
+            time : time === "Outro" ? timeAlternativo: time
         
             
         })
+     
         setTextoButao(prev => !prev)
-        props.setNovoTime(
-                    {
-                      nome: timeAlternativo,
-                      corPrimaria: '#FEB2F5',
-                      corSecundaria: '#FFFF'
-                    }
-        )          
+                 
         
         setNome("")
         setCargo("")
         setImagem("")
         setTime("")
         setTimeAlternativo("")
-        console.log(timeAlternativo)
+        
 
     }
     const [textoButao, setTextoButao] = React.useState(false)
@@ -41,13 +44,6 @@ const Formulario = (props) => {
     const [time,setTime] = React.useState("")
     const [timeAlternativo, setTimeAlternativo] = React.useState("")
     
-  /*  React.useEffect(()=> {
-        const timer = setTimeout(()=> {
-           setTextoButao(prev => !prev);
-        }, 1000);
-        return ()=> clearTimeout(timer);
-     }, [textoButao])*/
-     
 
     return (
         <section className="formulario">
