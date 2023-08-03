@@ -1,0 +1,14 @@
+
+.deletarColaboradorBtn {
+    background-color: transparent;
+    border: 0;
+    font-size: 1.3rem;
+    display: block;
+    display: flex;
+    width: 95%;
+    justify-content: end;
+    color:#414141f6;
+   
+  
+}
+

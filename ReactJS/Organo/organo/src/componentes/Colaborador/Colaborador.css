@@ -1,14 +1,16 @@
 .cabecalho {
     background-color:  #F0F0F0;
     border-radius: 1em 1em 0 0;
+    padding: 1em;
  
 }
 .colaborador {
     width: 20%;
     color:rgb(46, 46, 46);
+
     
 }
-.colaborador img {
+.colaborador .img-artista {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -36,16 +38,4 @@ h4 {
 h5 {
     color: #212121;
     margin-top: 1em;
-}
-
-.deletarColaboradorBtn {
-    background-color: transparent;
-    border: 0;
-    font-size: 1.3rem;
-    display: block;
-    display: flex;
-    width: 95%;
-    justify-content: end;
-    color:#414141f6
-  
 }

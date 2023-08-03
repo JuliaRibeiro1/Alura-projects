@@ -52,7 +52,7 @@ React.useEffect(() => {
     
 })
     return (
-        <section className="formulario">
+        <section className="formulario" id="formulario">
             <form onSubmit={aoSalvar}>
             <h2>Preencha os dados para criar o card da banda ou cantor(a)</h2>
             <CampoTexto 

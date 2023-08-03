@@ -1,3 +1,4 @@
+import Remove from "../Remove"
 import "./Colaborador.css"
 
 const Colaborador = (props) => {
@@ -7,8 +8,11 @@ const Colaborador = (props) => {
         <section className="colaborador">
             
             <div className="cabecalho" style={{backgroundColor:props.corDeFundo}}>
-                <button className="deletarColaboradorBtn" onClick={() => props.removeColaborador(props.nome)}>x</button>
-                <img src={props.imagem} alt={props.nome}/>
+                <Remove>
+                    <img src="/imagens/icon-lixo-preto.png" onClick={() => props.removeColaborador(props.nome)}/>
+                </Remove>
+               
+                <img src={props.imagem} alt={props.nome} className="img-artista"/>
             </div>
             <div className="rodape">
                 <h4>{props.nome}</h4>
