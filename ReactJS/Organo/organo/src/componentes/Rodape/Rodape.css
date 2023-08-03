@@ -21,7 +21,8 @@ p {
 
 @media (max-width:700px) {
     .footer img {
-        width: 100px;
+        width: 90px;
+        margin-right: 1em;
     }
     .footer {
        padding: 2em;

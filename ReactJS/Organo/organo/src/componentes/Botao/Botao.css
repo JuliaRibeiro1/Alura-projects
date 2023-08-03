@@ -16,4 +16,5 @@
     box-shadow: 0px 0px 5px  #5fcaee5b;
     margin: 0 auto;
     display: block;
+    min-width: 200px;
 }
