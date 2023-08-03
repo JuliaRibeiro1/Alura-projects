@@ -5,6 +5,7 @@
  
 }
 .colaborador {
+    min-width: 250px;
     width: 20%;
     color:rgb(46, 46, 46);
 
@@ -39,3 +40,5 @@ h5 {
     color: #212121;
     margin-top: 1em;
 }
+
+
