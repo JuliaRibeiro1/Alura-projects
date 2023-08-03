@@ -7,11 +7,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-background: rgba(255, 255, 255, 0);
-
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5.7px);
--webkit-backdrop-filter: blur(5.7px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.7px);
+    -webkit-backdrop-filter: blur(5.7px);
 }
 
 .footer ul li {
@@ -21,4 +19,8 @@ backdrop-filter: blur(5.7px);
 
 .footer ul li:last-child {
     margin-right: 0;
+}
+
+p {
+    margin-bottom: 1em;
 }

@@ -48,8 +48,7 @@ const [times, setTimes] = React.useState([
   },
   {
     nome: "Outro",
-    /*corPrimaria: '#FEB2F5',
-    corSecundaria: '#bF3F'*/
+    
   }
 ])
  
@@ -80,11 +79,16 @@ const timeNomes = times.map(item => {
 
 function removeColaborador(i)  {
 
-  const arr = colaboradores.filter((item) => item.key !== i);
-
+  const arr = colaboradores.filter((item) => item.nome !== i);
+console.log(arr)
   setColaboradores(arr);
 
 };
+
+function removeTime(i) {
+  const arr = colaboradores.filter((item) => item.time !== i);
+  setColaboradores(arr);
+}
 
   return (
     <div className="App">
@@ -102,6 +106,7 @@ function removeColaborador(i)  {
             corSecundaria={time.corSecundaria}
             colaboradores={colaboradores.filter(item => item.time === time.nome)}
             removeColaborador={removeColaborador}
+            removeTime={removeTime}
             
           />
         )

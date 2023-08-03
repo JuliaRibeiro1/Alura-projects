@@ -22,21 +22,25 @@ const Formulario = (props) => {
             cargo,
             imagem,
             time : time === "Outro" ? timeAlternativo: time
-        
             
         })
-     
-        setTextoButao(prev => !prev)
-                 
         
+       // const mudarTexto = () => {
+            setTextoButao(prev => !prev)
+            setTimeout(() => {
+                setTextoButao(prev => !prev)
+            },1000)
+     //   }
+        
+                 
         setNome("")
         setCargo("")
         setImagem("")
         setTime("")
         setTimeAlternativo("")
-        
 
     }
+
     const [textoButao, setTextoButao] = React.useState(false)
     const [nome, setNome] = React.useState('')
     const [cargo, setCargo] = React.useState('')
@@ -44,7 +48,9 @@ const Formulario = (props) => {
     const [time,setTime] = React.useState("")
     const [timeAlternativo, setTimeAlternativo] = React.useState("")
     
-
+React.useEffect(() => {
+    
+})
     return (
         <section className="formulario">
             <form onSubmit={aoSalvar}>
@@ -88,7 +94,7 @@ const Formulario = (props) => {
             /> : ""} 
 
             <Botao className="botao">
-                {textoButao ? "Feito!" : "Criar Card"}
+                {textoButao ? "Feito" : "Criar Card"}
             </Botao>
             </form>
         </section>
