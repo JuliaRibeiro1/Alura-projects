@@ -7,7 +7,7 @@
    
 }
 #formularioId {
-    padding-top: 1em;
+    padding-top: 1.5em;
    
 }
 .formulario form {
@@ -28,10 +28,10 @@
         
     }
     .formulario {
-        margin-bottom: 0em;
+        margin-bottom: 0;
     }
     #formularioId {
-        padding-top: 0em;
+        padding-top: 0;
        
     }
    

@@ -80,6 +80,7 @@ React.useEffect(() => {
             <ListaSuspensa 
                 label="Gênero" 
                 valor={time}
+                placeholder="Selecione um gênero"
                 aoAlterado={valor => setTime(valor)}
                 itens={props.timeLista} 
             />

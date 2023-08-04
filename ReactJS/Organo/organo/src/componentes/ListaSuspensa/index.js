@@ -10,7 +10,7 @@ const ListaSuspensa = (props) => {
         <div className="lista-suspensa">
             <label>{props.label}</label>
             <select required={props.obrigatorio} value={props.valor} onChange={aoSelecionado}>
-                <option value="" disabled> Selecione um gênero </option>
+                <option value="" disabled> {props.placeholder} </option>
                 {props.itens.map(item => <option key={item} value={item}>{item}</option>) }
             </select>
         </div>

@@ -9,10 +9,9 @@
     align-items: center;
     font-size: 1.4rem;
     min-height: 200px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 30px  rgba(47, 173, 215, 0.562);
     backdrop-filter: blur(5.7px);
     -webkit-backdrop-filter: blur(5.7px);
-    margin-top: 100px;
 }
 
 
@@ -28,6 +27,6 @@ p {
     .footer {
        padding: 2em;
       font-size: 1rem;
-      margin-top: 0px;
+    
     }
 }
