@@ -1,6 +1,7 @@
 
+
 import "./Banner.css"
-import { HashLink  } from 'react-router-hash-link';
+import { HashLink as Link } from 'react-router-hash-link';
 
 function Banner() {
     return (
@@ -12,13 +13,15 @@ function Banner() {
     
                 <h1>Sintonize sua Playlist Perfeita:</h1>
                 <h2>Organize suas Estrelas Musicais!</h2>
-                <button className="comecar-btn" > COMEÇAR </button>
+                <Link to="#formularioId" smooth> <button className="comecar-btn" >COMEÇAR</button></Link> 
                 
             </div>
             <span>ORGANO</span>
+          
         </div>
     
         </header>
+        
         
     )
 }

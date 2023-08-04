@@ -24,14 +24,12 @@ const Formulario = (props) => {
             time : time === "Outro" ? timeAlternativo: time
             
         })
-        
-       // const mudarTexto = () => {
+      
             setTextoButao(prev => !prev)
             setTimeout(() => {
                 setTextoButao(prev => !prev)
             },1000)
-     //   }
-        
+  
                  
         setNome("")
         setCargo("")
@@ -52,7 +50,9 @@ React.useEffect(() => {
     
 })
     return (
-        <section className="formulario" id="formulario">
+      
+        <section id="formularioId">
+            <div className="formulario" >
             <form onSubmit={aoSalvar}>
             <h2>Preencha os dados para criar o card da banda ou cantor(a)</h2>
             <CampoTexto 
@@ -97,7 +97,9 @@ React.useEffect(() => {
                 {textoButao ? "Feito" : "Criar Card"}
             </Botao>
             </form>
+             </div>
         </section>
+       
     )
 }
 export default Formulario

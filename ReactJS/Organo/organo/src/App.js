@@ -4,6 +4,8 @@ import Formulario from "./componentes/Formulario"
 import React from "react"
 import Time from './componentes/Time'
 import Rodape from './componentes/Rodape'
+import { BrowserRouter } from 'react-router-dom'
+
 
 function App() {
 
@@ -92,7 +94,9 @@ function removeTime(i) {
 
   return (
     <div className="App">
+      <BrowserRouter>
       <Banner/>
+      </BrowserRouter>
      <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} setTimes={timeNomes} setNovoTime={setNovoTime}/>
       
       {times.map((time) => {
