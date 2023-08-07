@@ -1,6 +1,6 @@
 
 import Colaborador from "../Colaborador"
-import Remove from "../Remove"
+import Remove from "../RemoverBtn"
 import "./Time.css"
 
 const Time = (props) => {

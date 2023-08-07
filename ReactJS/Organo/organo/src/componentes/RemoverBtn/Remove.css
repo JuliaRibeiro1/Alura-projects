@@ -6,7 +6,7 @@
     display: block;
     display: flex;
     width: 95%;
-    justify-content: end;
+    justify-content: flex-end;
     color:#414141f6;
    
   

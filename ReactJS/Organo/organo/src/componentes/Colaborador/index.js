@@ -1,4 +1,4 @@
-import Remove from "../Remove"
+import Remove from "../RemoverBtn"
 import "./Colaborador.css"
 
 const Colaborador = (props) => {
@@ -9,7 +9,7 @@ const Colaborador = (props) => {
             
             <div className="cabecalho" style={{backgroundColor:props.corDeFundo}}>
                 <Remove>
-                    <img src="/imagens/icon-lixo-preto.png" onClick={() => props.removeColaborador(props.nome)}/>
+                    <img src="/imagens/icon-lixo-preto.png" alt="colaborador" onClick={() => props.removeColaborador(props.nome)}/>
                 </Remove>
                
                 <img src={props.imagem} alt={props.nome} className="img-artista"/>

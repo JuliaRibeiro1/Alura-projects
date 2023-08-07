@@ -1,4 +1,4 @@
-import Botao from "../Botao/Botao"
+
 import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
 import React from "react"
@@ -93,7 +93,7 @@ const Formulario = (props) => {
             /> : ""} 
 
             <button className={textoButao ? "botao animar" : "botao" }>
-                {textoButao ? <img src="/imagens/icon-feito.png"/> : "Criar Card"}
+                {textoButao ? <img src="/imagens/icon-feito.png" alt="icone feito"/> : "Criar Card"}
             </button>
             </form>
              </div>
