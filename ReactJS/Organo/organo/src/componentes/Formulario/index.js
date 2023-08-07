@@ -7,36 +7,36 @@ import "./Formulario.css"
 const Formulario = (props) => {
   
     const aoSalvar = (e) => {
-        props.setNovoTime(
-            {
-              nome: timeAlternativo,
-              corPrimaria: '#2a628c',
-              corSecundaria: '#1a4463'
-            }
-) 
-
-        e.preventDefault()
-        props.aoColaboradorCadastrado({
-            key:nome,
-            nome,
-            cargo,
-            imagem,
-            time : time === "Outro" ? timeAlternativo: time
-            
-        })
-      
+ 
             setTextoButao(prev => !prev)
             setTimeout(() => {
                 setTextoButao(prev => !prev)
-            },1000)
-  
-                 
+           
+ 
+            props.setNovoTime(
+                {
+                  nome: timeAlternativo,
+                  corPrimaria: '#2a628c',
+                  corSecundaria: '#1a4463'
+                }
+    ) 
+    
+            e.preventDefault()
+            props.aoColaboradorCadastrado({
+                key:nome,
+                nome,
+                cargo,
+                imagem,
+                time : time === "Outro" ? timeAlternativo: time
+                
+            })
+           
         setNome("")
         setCargo("")
         setImagem("")
         setTime("")
         setTimeAlternativo("")
-
+    },1500)
     }
 
     const [textoButao, setTextoButao] = React.useState(false)
@@ -46,9 +46,7 @@ const Formulario = (props) => {
     const [time,setTime] = React.useState("")
     const [timeAlternativo, setTimeAlternativo] = React.useState("")
     
-React.useEffect(() => {
-    
-})
+
     return (
       
         <section id="formularioId">
@@ -94,9 +92,9 @@ React.useEffect(() => {
                 aoAlterado={valor => setTimeAlternativo(valor)}
             /> : ""} 
 
-            <Botao className="botao">
-                {textoButao ? "Feito" : "Criar Card"}
-            </Botao>
+            <button className={textoButao ? "botao animar" : "botao" }>
+                {textoButao ? <img src="/imagens/icon-feito.png"/> : "Criar Card"}
+            </button>
             </form>
              </div>
         </section>

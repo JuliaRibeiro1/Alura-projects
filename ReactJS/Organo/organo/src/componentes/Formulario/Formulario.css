@@ -1,13 +1,15 @@
 .formulario {
     display: flex;
     justify-content: center;
-    margin-bottom: 2em;
+    padding-bottom: 100px;
+  
  
    
    
 }
 #formularioId {
     padding-top: 1.5em;
+    
    
 }
 .formulario form {
@@ -18,20 +20,76 @@
     padding: 2.5em;
     box-shadow: 0 0px 15px 15px rgba(49, 48, 48, 0.274);
     border-radius: 2em;
+   
 
+}
+
+.botao {
+    padding: 1.5em;
+    cursor: pointer;
+    color:white;
+    background-color:#bbeeff; ;
+    border: none;
+    color:rgb(39, 39, 39);
+    border-radius: 2em;
+    font-size: 1.2em;
+    width: 80%;
+    max-width: 350px;
+    margin-top: 1.5em;
+    font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing:5px;
+    box-shadow: 0px 0px 5px  #5fcaee5b;
+    margin: 0 auto;
+    display: block;
+    min-width: 200px;
+    position: relative;
+ 
+}
+.animar{
+  
+    min-width: 0;
+    
+
+    animation: animarBtn .5s ease-in forwards;
+}
+.animar img {
+    opacity: 0;
+    animation: fade 1s .5s ease-in forwards;
+}
+
+@keyframes fade{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes animarBtn {
+
+    100% {
+      
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+
+    }
 }
 
 @media screen and (max-width:700px) {
     .formulario form {
         width: 100%;
         border-radius: 0;
+    
         
     }
     .formulario {
-        margin-bottom: 0;
+        padding: 0;
     }
     #formularioId {
         padding-top: 0;
+        padding-bottom: 0;
        
     }
    
