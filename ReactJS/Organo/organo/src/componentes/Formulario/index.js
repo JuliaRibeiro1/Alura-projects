@@ -7,7 +7,7 @@ import "./Formulario.css"
 const Formulario = (props) => {
   
     const aoSalvar = (e) => {
- 
+        e.preventDefault()
             setTextoButao(prev => !prev)
             setTimeout(() => {
                 setTextoButao(prev => !prev)
@@ -21,7 +21,7 @@ const Formulario = (props) => {
                 }
     ) 
     
-            e.preventDefault()
+          
             props.aoColaboradorCadastrado({
                 key:nome,
                 nome,
