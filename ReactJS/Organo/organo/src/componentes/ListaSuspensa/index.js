@@ -1,7 +1,7 @@
 import "../CampoTexto/CampoTexto.css"
 
 const ListaSuspensa = (props) => {
-   console.log(props.itens)
+
    const aoSelecionado = (e) => {
 
         props.aoAlterado(e.target.value)

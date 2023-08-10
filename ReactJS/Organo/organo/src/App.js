@@ -13,40 +13,40 @@ function App() {
 
  const [novoTime, setNovoTime] = React.useState({});
 
-const [times, setTimes] = React.useState([
+ const [times, setTimes] = React.useState([
   {
    
     nome: 'Rock',
     corPrimaria: '#82CFFA',
-    corSecundaria: 'rgb(23, 61, 97)',
+    corSecundaria: 'rgb(23, 61, 97)'
   },
   {
 
     nome: 'Metal',
     corPrimaria: '#88c2e3',
-    corSecundaria: 'rgb(26, 59, 94)',
+    corSecundaria: 'rgb(26, 59, 94)'
   },
   {
   
     nome: 'Rap',
     corPrimaria: '#acd2e8',
-    corSecundaria: 'rgb(22, 65, 97)',
+    corSecundaria: 'rgb(22, 65, 97)'
   },
   {
 
     nome: 'Pop',
     corPrimaria: '#78b4d6',
-    corSecundaria: 'rgb(20, 61, 92)',
+    corSecundaria: 'rgb(20, 61, 92)'
   },
   {
     nome: 'MPB',
     corPrimaria: '#85b1c9',
-    corSecundaria: 'rgb(17, 55, 84)',
+    corSecundaria: 'rgb(17, 55, 84)'
   },
   {
     nome: 'Eletrônica',
     corPrimaria: '#6dadd1',
-    corSecundaria: 'rgb(16, 51, 78)',
+    corSecundaria: 'rgb(16, 51, 78)'
   },
   {
     nome: "Outro",
@@ -79,17 +79,32 @@ const timeNomes = times.map(item => {
   return item.nome
 })
 
-function removeColaborador(i)  {
+const removeColaborador = (i) => {
 
   const arr = colaboradores.filter((item) => item.nome !== i);
-console.log(arr)
+
   setColaboradores(arr);
 
 };
 
-function removeTime(i) {
+const removeTime = (i) => {
   const arr = colaboradores.filter((item) => item.time !== i);
   setColaboradores(arr);
+}
+
+const addCor = (i, corPrimaria, corSecundaria) => {
+  console.log("Oooo")
+  const arr = times.map(item => {
+    console.log(item.time)
+    if(item.nome === i) {
+   
+console.log("OIII")
+      return {...item, corPrimaria, corSecundaria}
+    }
+    return item
+  })
+ setTimes(arr)
+ console.log(times)
 }
 
   return (
@@ -97,10 +112,10 @@ function removeTime(i) {
       <BrowserRouter>
       <Banner/>
       </BrowserRouter>
-     <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} setTimes={timeNomes} setNovoTime={setNovoTime}/>
+     <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} addCor={addCor} setNovoTime={setNovoTime}/>
       
       {times.map((time) => {
-
+   
         return ( 
          
          <Time 

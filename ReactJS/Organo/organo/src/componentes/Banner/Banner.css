@@ -66,6 +66,7 @@ h1,h2 {
     position: relative;
     border: 3px solid #bbeeff;
     box-shadow: 0px 0px 50px  #5fcaee5b;
+   
     
 }
 
@@ -94,7 +95,7 @@ h1,h2 {
     opacity: 0;
     transition: opacity .5s;
 }
-span {
+.banner span {
     font-size: 4rem;
     align-self: center;
     letter-spacing: .3em;
@@ -149,7 +150,7 @@ span {
         margin-bottom: 1.5em;
     }
    
-    span {
+    .banner span {
         writing-mode: initial;
         width: 100%;
         font-size: 2rem;

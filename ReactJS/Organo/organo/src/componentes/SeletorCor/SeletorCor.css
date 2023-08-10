@@ -1,0 +1,39 @@
+.seletor-cor input {
+    border-radius: 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border:0;
+    cursor: pointer;
+    width: 72px;
+    height: 62px;
+    display: block;
+  
+   
+    
+}
+.card-cor {
+   box-shadow: 0px 0px 10px 5px rgba(105, 105, 105, 0.123);
+   
+}
+input[type="color"]::-moz-color-swatch {
+    border: 0;
+}
+.seletor-cor {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0 1.5em 0;
+    text-align: center;
+
+}
+
+.seletor-cor span {
+  
+    font-size: .9rem;
+    padding: .3em;
+    margin-top: 0;
+
+   
+}

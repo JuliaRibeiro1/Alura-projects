@@ -2,7 +2,7 @@ import Remove from "../RemoverBtn"
 import "./Colaborador.css"
 
 const Colaborador = (props) => {
-    console.log(props.removeColaborador)
+
     return (
         
         <section className="colaborador">
