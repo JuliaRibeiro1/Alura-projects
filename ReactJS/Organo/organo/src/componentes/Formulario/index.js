@@ -10,38 +10,41 @@ const Formulario = (props) => {
   
     const aoSalvar = (e) => {
         e.preventDefault()
-
-        props.addCor(time, corPrimaria, corSecundaria)
-
+        props.aoColaboradorCadastrado({
+            key:nome,
+            nome,
+            cargo,
+            imagem,
+            time : time === "Outro" ? timeAlternativo : time,
+            
+        })
+        const timeFinal = time === "Outro" ? timeAlternativo : time
+      
+        console.log(timeFinal)
+        
             setTextoButao(prev => !prev)
             setTimeout(() => {
                 setTextoButao(prev => !prev)
-           
- 
+              
+            },1500)
+            console.log(corPrimaria)
+            if(checkboxCor) {
+                props.addCor(timeFinal, corPrimaria, corSecundaria)
+            }
             props.setNovoTime(
                 {
                   nome: timeAlternativo,
-                  corPrimaria: '#2a628c',
-                  corSecundaria: '#1a4463'
+                  corPrimaria: corPrimaria ? corPrimaria :'#2a628c',
+                  corSecundaria: corSecundaria ? corSecundaria : '#1a4463'
                 }
-    ) 
-                  
-            props.aoColaboradorCadastrado({
-                key:nome,
-                nome,
-                cargo,
-                imagem,
-                time : time === "Outro" ? timeAlternativo : time,
-                corPrimaria : "red" 
-                
-            })
-          
+        ) 
+        console.log(corPrimaria)
         setNome("")
         setCargo("")
         setImagem("")
         setTime("")
         setTimeAlternativo("")
-    },1500)
+ 
     }
 
     const [textoButao, setTextoButao] = React.useState(false)
@@ -51,9 +54,11 @@ const Formulario = (props) => {
     const [time,setTime] = React.useState("")
     const [timeAlternativo, setTimeAlternativo] = React.useState("")
     const [checkboxCor, setCheckboxCor] = React.useState()
-    const [corPrimaria, setCorPrimaria] = React.useState("#ebabeb")
-    const [corSecundaria, setCorSecundaria] = React.useState("#7a9ee0")
-    
+    const [corPrimaria, setCorPrimaria] = React.useState("#f06cff")
+    const [corSecundaria, setCorSecundaria] = React.useState("#588dc9")
+
+
+
 
     return (
       
@@ -113,18 +118,16 @@ const Formulario = (props) => {
                 aoAlterado={valor => setCheckboxCor(valor)}
             />
 
-            {checkboxCor ? 
+            {checkboxCor === true? 
             <div className="seletor-cor-container">
                 <SeletorCor 
                     label="Cor primária" 
-                    obrigatorio={true}
                     valor={corPrimaria }
                     aoAlterado={valor => setCorPrimaria(valor)}
                 
                 />
                 <SeletorCor 
                     label="Cor secundária" 
-                    brigatorio={true}
                     valor={corSecundaria}
                     aoAlterado={valor => setCorSecundaria(valor)}
                 />

@@ -56,12 +56,11 @@ function App() {
  
 React.useEffect(() => {
 
-
  setTimes(prev => {
   const timeExiste = prev.some(item => item.nome === novoTime.nome);
 
   if (!timeExiste && novoTime.nome ) {
-  
+  console.log("Oiiisq")
     return [
       ...prev,
       novoTime
@@ -93,18 +92,14 @@ const removeTime = (i) => {
 }
 
 const addCor = (i, corPrimaria, corSecundaria) => {
-  console.log("Oooo")
   const arr = times.map(item => {
-    console.log(item.time)
+ 
     if(item.nome === i) {
-   
-console.log("OIII")
       return {...item, corPrimaria, corSecundaria}
     }
     return item
   })
  setTimes(arr)
- console.log(times)
 }
 
   return (
