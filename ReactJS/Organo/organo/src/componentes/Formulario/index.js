@@ -7,43 +7,45 @@ import SeletorCor from "../SeletorCor"
 import Checkbox from "../Checkbox"
 
 const Formulario = (props) => {
-  
+   
     const aoSalvar = (e) => {
         e.preventDefault()
-        props.aoColaboradorCadastrado({
-            key:nome,
-            nome,
-            cargo,
-            imagem,
-            time : time === "Outro" ? timeAlternativo : time,
-            
-        })
-        const timeFinal = time === "Outro" ? timeAlternativo : time
       
-        console.log(timeFinal)
+       
+       
         
             setTextoButao(prev => !prev)
             setTimeout(() => {
                 setTextoButao(prev => !prev)
               
-            },1500)
-            console.log(corPrimaria)
+            const timeFinal = time === "Outro" ? timeAlternativo : time
+    
             if(checkboxCor) {
                 props.addCor(timeFinal, corPrimaria, corSecundaria)
             }
+            props.aoColaboradorCadastrado({
+                key:nome,
+                nome,
+                cargo,
+                imagem,
+                time : timeFinal,
+                
+            })
+
             props.setNovoTime(
                 {
                   nome: timeAlternativo,
-                  corPrimaria: corPrimaria ? corPrimaria :'#2a628c',
-                  corSecundaria: corSecundaria ? corSecundaria : '#1a4463'
+                  corPrimaria: checkboxCor ? corPrimaria :'#2a628c',
+                  corSecundaria: checkboxCor ? corSecundaria : '#1a4463'
                 }
         ) 
-        console.log(corPrimaria)
+    },1500)
         setNome("")
         setCargo("")
         setImagem("")
         setTime("")
         setTimeAlternativo("")
+       
  
     }
 
@@ -58,8 +60,6 @@ const Formulario = (props) => {
     const [corSecundaria, setCorSecundaria] = React.useState("#588dc9")
 
 
-
-
     return (
       
         <section id="formularioId">
@@ -68,7 +68,6 @@ const Formulario = (props) => {
             <h2>Preencha os dados para criar o card da banda ou cantor(a)</h2>
             <CampoTexto 
                 obrigatorio={true}
-                type="text"
                 label="Nome"
                 valor={nome}
                 placeholder="Lana Del Rey"
@@ -77,14 +76,13 @@ const Formulario = (props) => {
 
             <CampoTexto 
                 label="Música preferida" 
-                type="text"
                 valor={cargo}
+                obrigatorio={false}
                 placeholder="Serene Queen"
                 aoAlterado={valor => setCargo(valor)}
                 />
             <CampoTexto 
-                obrigatorio={true} 
-                type="text"
+                obrigatorio={false} 
                 label="Imagem" 
                 valor={imagem}
                 placeholder="https://lana.png"
@@ -93,7 +91,6 @@ const Formulario = (props) => {
 
             <ListaSuspensa 
                 label="Gênero" 
-                type="text"
                 valor={time}
                 placeholder="Selecione um gênero"
                 aoAlterado={valor => setTime(valor)}
@@ -103,7 +100,6 @@ const Formulario = (props) => {
             {time === "Outro" ?  
             <CampoTexto 
                 obrigatorio={true} 
-                type="text"
                 label="Escreva o gênero" 
                 valor={timeAlternativo}
                 placeholder="Digite o time"
@@ -112,7 +108,6 @@ const Formulario = (props) => {
 
             <Checkbox
                 obrigatorio={true} 
-                type="checkbox"
                 label="Deseja personalizar cores?" 
                 valor={checkboxCor}
                 aoAlterado={valor => setCheckboxCor(valor)}

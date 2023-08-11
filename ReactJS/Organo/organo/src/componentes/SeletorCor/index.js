@@ -5,9 +5,9 @@ function SeletorCor(props) {
     const aoDigitado = (e) => {
       
         props.aoAlterado(e.target.value)
-        console.log(props.valor)
      
     }
+    
     return(
         <div className="seletor-cor">
             <label>{props.label}</label>

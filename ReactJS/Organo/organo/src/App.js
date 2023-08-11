@@ -60,10 +60,9 @@ React.useEffect(() => {
   const timeExiste = prev.some(item => item.nome === novoTime.nome);
 
   if (!timeExiste && novoTime.nome ) {
-  console.log("Oiiisq")
     return [
-      ...prev,
-      novoTime
+      novoTime,...prev
+      
     ];
   }
   else {

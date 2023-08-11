@@ -11,13 +11,16 @@
 
     
 }
-.colaborador .img-artista {
+.colaborador .img-artista, .img-substituir {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     position: relative;
     object-fit: cover;
     bottom: -50px;
+    justify-self: center;
+    margin: 0 auto;
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.158);
     
 }
 
@@ -39,6 +42,18 @@ h4 {
 h5 {
     color: #212121;
     margin-top: 1em;
+}
+
+.img-substituir {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 2rem;
+    color: white;
+    text-shadow:  0px 0px 5px rgba(36, 36, 36, 0.384);
+   
 }
 
 
