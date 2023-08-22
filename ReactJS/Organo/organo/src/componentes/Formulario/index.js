@@ -6,7 +6,7 @@ import "./Formulario.css"
 import SeletorCor from "../SeletorCor"
 import Checkbox from "../Checkbox"
 
-const Formulario = (props) => {
+const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
    
     const aoSalvar = (e) => {
         e.preventDefault()
@@ -21,9 +21,9 @@ const Formulario = (props) => {
             const timeFinal = time === "Outro" ? timeAlternativo : time
     
             if(checkboxCor) {
-                props.addCor(timeFinal, corPrimaria, corSecundaria)
+                addCor(timeFinal, corPrimaria, corSecundaria)
             }
-            props.aoColaboradorCadastrado({
+            aoColaboradorCadastrado({
                 key:nome,
                 nome,
                 cargo,
@@ -32,7 +32,7 @@ const Formulario = (props) => {
                 
             })
 
-            props.setNovoTime(
+            setNovoTime(
                 {
                   nome: timeAlternativo,
                   corPrimaria: checkboxCor ? corPrimaria :'#2a628c',
@@ -94,7 +94,7 @@ const Formulario = (props) => {
                 valor={time}
                 placeholder="Selecione um gênero"
                 aoAlterado={valor => setTime(valor)}
-                itens={props.timeLista} 
+                itens={timeLista} 
             />
 
             {time === "Outro" ?  

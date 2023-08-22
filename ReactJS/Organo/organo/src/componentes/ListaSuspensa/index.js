@@ -1,20 +1,20 @@
 import "../CampoTexto/CampoTexto.css"
 
-const ListaSuspensa = (props) => {
+const ListaSuspensa = ({valor,obrigatorio,label,placeholder,itens,aoAlterado}) => {
 
    const aoSelecionado = (e) => {
 
-        props.aoAlterado(e.target.value)
+        aoAlterado(e.target.value)
    }
     return (
         
         <div className="lista-suspensa">
 
-            <label>{props.label}</label>
+            <label>{label}</label>
 
-            <select required={props.obrigatorio} value={props.valor} onChange={aoSelecionado}>
-                <option value="" disabled> {props.placeholder} </option>
-                {props.itens.map(item => <option key={item} value={item}>{item}</option>) }
+            <select required={obrigatorio} value={valor} onChange={aoSelecionado}>
+                <option value="" disabled> {placeholder} </option>
+                {itens.map(item => <option key={item} value={item}>{item}</option>) }
                
             </select>
 

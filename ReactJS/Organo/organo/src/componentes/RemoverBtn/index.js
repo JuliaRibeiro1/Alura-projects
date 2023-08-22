@@ -1,10 +1,10 @@
 import "./Remove.css"
 
-function Remove(props) {
+function Remove({children}) {
     
     return (
 
-        <button className="deletarColaboradorBtn">{props.children}</button>
+        <button className="deletarColaboradorBtn">{children}</button>
     )
 }
 export default Remove
