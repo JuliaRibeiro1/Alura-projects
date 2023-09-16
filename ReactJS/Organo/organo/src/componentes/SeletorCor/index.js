@@ -1,19 +1,13 @@
 import "./SeletorCor.css"
 
-function SeletorCor(props) {
-
-    const aoDigitado = (e) => {
-      
-        props.aoAlterado(e.target.value)
-     
-    }
+function SeletorCor({valor, label, onChange}) {
     
     return(
         <div className="seletor-cor">
-            <label>{props.label}</label>
+            <label>{label}</label>
             <div className="card-cor">
-            <input type="color" value={props.valor} onChange={aoDigitado} required={props.obrigatorio}  />  
-            <span>{props.valor}</span>
+            <input type="color" value={valor} onChange={onChange}  />  
+            <span>{valor}</span>
             </div>
         </div>
     )

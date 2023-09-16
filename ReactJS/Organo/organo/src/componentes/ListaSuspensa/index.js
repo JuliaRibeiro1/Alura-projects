@@ -1,22 +1,20 @@
 import "../CampoTexto/CampoTexto.css"
+import Erro from "../Erro/Erro"
 
-const ListaSuspensa = ({valor,obrigatorio,label,placeholder,itens,aoAlterado}) => {
+const ListaSuspensa = ({valor,nome,label,placeholder,itens,onChange, onBlur,erro}) => {
 
-   const aoSelecionado = (e) => {
-
-        aoAlterado(e.target.value)
-   }
     return (
         
         <div className="lista-suspensa">
 
             <label>{label}</label>
 
-            <select required={obrigatorio} value={valor} onChange={aoSelecionado}>
+            <select name={nome} value={valor} onChange={onChange} onBlur={onBlur} >
                 <option value="" disabled> {placeholder} </option>
                 {itens.map(item => <option key={item} value={item}>{item}</option>) }
                
             </select>
+            <Erro mensagem={erro}/>
 
         </div>
     )

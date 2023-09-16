@@ -5,61 +5,52 @@ import React from "react"
 import "./Formulario.css"
 import SeletorCor from "../SeletorCor"
 import Checkbox from "../Checkbox"
+import useForm from "../../hooks/useForm"
 
 const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
-   
+
+    const nome = useForm("nome")
+    const cargo = useForm()
+    const imagem = useForm()
+    const time = useForm("genero")
+    const timeAlternativo = useForm("genero")
+    const checkBox = useForm("checkbox")
+    const corPrimaria = useForm("corPrimaria")
+    const corSecundaria = useForm("corSecundaria")
+
     const aoSalvar = (e) => {
         e.preventDefault()
-      
-       
-       
-        
+      if(nome.validate() && time.validate() && timeAlternativo.validate() ) {
             setTextoButao(prev => !prev)
             setTimeout(() => {
                 setTextoButao(prev => !prev)
               
-            const timeFinal = time === "Outro" ? timeAlternativo : time
-    
-            if(checkboxCor) {
-                addCor(timeFinal, corPrimaria, corSecundaria)
+           const timeFinal = time.valor === "Outro" ? timeAlternativo.valor : time.valor
+    console.log(time.valor === "Outro")
+            if(checkBox.valor) {
+                addCor(timeFinal, corPrimaria.valor, corSecundaria.valor)
             }
+
             aoColaboradorCadastrado({
-                key:nome,
-                nome,
-                cargo,
-                imagem,
-                time : timeFinal,
-                
+                key:nome.valor,
+                nome:nome.valor,
+                imagem:imagem.valor,
+                time:timeFinal
             })
 
             setNovoTime(
                 {
-                  nome: timeAlternativo,
-                  corPrimaria: checkboxCor ? corPrimaria :'#2a628c',
-                  corSecundaria: checkboxCor ? corSecundaria : '#1a4463'
+                  nome: timeFinal,
+                  corPrimaria: checkBox.valor ? corPrimaria.valor :'#2a628c',
+                  corSecundaria: checkBox.valor ? corSecundaria.valor : '#1a4463'
                 }
         ) 
-    },1500)
-        setNome("")
-        setCargo("")
-        setImagem("")
-        setTime("")
-        setTimeAlternativo("")
-       
- 
+    },1500) 
+}
     }
-
+   
     const [textoButao, setTextoButao] = React.useState(false)
-    const [nome, setNome] = React.useState('')
-    const [cargo, setCargo] = React.useState('')
-    const [imagem, setImagem] = React.useState('')
-    const [time,setTime] = React.useState("")
-    const [timeAlternativo, setTimeAlternativo] = React.useState("")
-    const [checkboxCor, setCheckboxCor] = React.useState()
-    const [corPrimaria, setCorPrimaria] = React.useState("#f06cff")
-    const [corSecundaria, setCorSecundaria] = React.useState("#588dc9")
-
-
+    console.log(checkBox)
     return (
       
         <section id="formularioId">
@@ -67,76 +58,65 @@ const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
             <form onSubmit={aoSalvar}>
             <h2>Preencha os dados para criar o card da banda ou cantor(a)</h2>
             <CampoTexto 
-                obrigatorio={true}
+                nome="nome"
                 label="Nome"
-                valor={nome}
                 placeholder="Lana Del Rey"
-                aoAlterado={valor => setNome(valor)}
+                {...nome}
                 />
 
             <CampoTexto 
+                nome="cargo"
                 label="Música preferida" 
-                valor={cargo}
-                obrigatorio={false}
                 placeholder="Serene Queen"
-                aoAlterado={valor => setCargo(valor)}
+                {...cargo}
                 />
+
             <CampoTexto 
-                obrigatorio={false} 
+                nome="imagem"
                 label="Imagem" 
-                valor={imagem}
                 placeholder="https://lana.png"
-                aoAlterado={valor => setImagem(valor)}
+                {...imagem}
                 />
 
             <ListaSuspensa 
                 label="Gênero" 
-                valor={time}
+                nome="time"
                 placeholder="Selecione um gênero"
-                aoAlterado={valor => setTime(valor)}
                 itens={timeLista} 
+                {...time}
             />
 
-            {time === "Outro" ?  
+            {time.valor === "Outro" &&
             <CampoTexto 
-                obrigatorio={true} 
                 label="Escreva o gênero" 
-                valor={timeAlternativo}
                 placeholder="Digite o time"
-                aoAlterado={valor => setTimeAlternativo(valor)}
-            /> : ""} 
+                {...timeAlternativo}
+            /> } 
 
             <Checkbox
-                obrigatorio={true} 
                 label="Deseja personalizar cores?" 
-                valor={checkboxCor}
-                aoAlterado={valor => setCheckboxCor(valor)}
+                {...checkBox}
             />
 
-            {checkboxCor === true? 
+            {checkBox.valor && 
             <div className="seletor-cor-container">
                 <SeletorCor 
                     label="Cor primária" 
-                    valor={corPrimaria }
-                    aoAlterado={valor => setCorPrimaria(valor)}
+                    {...corPrimaria}
                 
                 />
                 <SeletorCor 
                     label="Cor secundária" 
-                    valor={corSecundaria}
-                    aoAlterado={valor => setCorSecundaria(valor)}
+                    {...corSecundaria}
                 />
             </div>
-        
-            : "" }
-                
-            <button className={textoButao ? "botao animar" : "botao" }>
-                {textoButao ? <img src="/imagens/icon-feito.png" alt="icone feito"/> : "Criar Card"}
-            </button>
+           }
+
+           {textoButao  ? <button className="botao animar" disabled><img src="/imagens/icon-feito.png" alt="icone feito"/> </button> : <button className="botao">Criar card</button>}
+           
             </form>
              </div>
         </section>
-       
     )
 }
 export default Formulario

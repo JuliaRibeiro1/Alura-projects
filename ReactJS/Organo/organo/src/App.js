@@ -55,7 +55,7 @@ function App() {
 ])
  
 React.useEffect(() => {
-
+console.log(colaboradores)
  setTimes(prev => {
   const timeExiste = prev.some(item => item.nome === novoTime.nome);
 
