@@ -50,36 +50,32 @@ function App() {
   },
   {
     nome: "Outro",
-    
   }
 ])
  
 React.useEffect(() => {
-console.log(colaboradores)
+
  setTimes(prev => {
   const timeExiste = prev.some(item => item.nome === novoTime.nome);
 
-  if (!timeExiste && novoTime.nome ) {
+  if(!timeExiste && novoTime.nome ) {
     return [
       novoTime,...prev
-      
     ];
   }
   else {
     return prev
   }
-
 })
-
 },[novoTime])
 
 const timeNomes = times.map(item => {
   return item.nome
 })
 
-const removeColaborador = (i) => {
+const removeColaborador = (id) => {
 
-  const arr = colaboradores.filter((item) => item.nome !== i);
+  const arr = colaboradores.filter((item) => item.id !== id);
 
   setColaboradores(arr);
 
@@ -106,7 +102,7 @@ const addCor = (i, corPrimaria, corSecundaria) => {
       <BrowserRouter>
       <Banner/>
       </BrowserRouter>
-     <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} addCor={addCor} setNovoTime={setNovoTime}/>
+      <Formulario aoColaboradorCadastrado={colaborador => setColaboradores([...colaboradores,colaborador,])} timeLista={timeNomes} addCor={addCor} setNovoTime={setNovoTime}/>
       
       {times.map((time) => {
    
@@ -120,7 +116,6 @@ const addCor = (i, corPrimaria, corSecundaria) => {
             colaboradores={colaboradores.filter(item => item.time === time.nome)}
             removeColaborador={removeColaborador}
             removeTime={removeTime}
-            
           />
         )
       })}

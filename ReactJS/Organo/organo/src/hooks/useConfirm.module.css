@@ -1,0 +1,30 @@
+.confirm {
+    background-color: rgb(216, 15, 8);
+    width: 80%;
+    padding: 1.5em;
+    max-width: 400px;
+    
+    border-radius: 1em;
+    text-align: center;
+    position: fixed;
+    top:50%;
+    z-index: 100;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.confirm button {
+    padding: 1em 1.5em;
+    border: 0;
+    margin-left: 1.5em;
+}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(to right, #834d9b, #d04ed6);
+    background: linear-gradient(to right, #834d9b, #d04ed6);
+  }

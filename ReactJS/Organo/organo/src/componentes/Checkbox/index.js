@@ -1,7 +1,6 @@
 import "./Checkbox.css"
 
 function Checkbox({valor,label,onChange}) {
-    console.log(valor)
    
     return (
         <div>

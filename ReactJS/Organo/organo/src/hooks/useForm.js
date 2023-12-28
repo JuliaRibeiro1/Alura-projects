@@ -32,8 +32,6 @@ function useForm(tipo) {
     }
 
     function onChange({target}) {
-        console.log(target)
-        console.log("fwfwfwfwfwf")
         if (erro) {
             validate(target.value)
         };

@@ -1,8 +1,8 @@
 import Remove from "../RemoverBtn"
 import "./Colaborador.css"
 
-const Colaborador = ({nome,cargo,imagem,corDeFundo,removeColaborador}) => {
-    
+const Colaborador = ({id,nome,cargo,imagem,corDeFundo,removeColaborador}) => {
+
     const subsituir = nome.charAt(0) 
     return (
        
@@ -10,7 +10,7 @@ const Colaborador = ({nome,cargo,imagem,corDeFundo,removeColaborador}) => {
             
             <div className="cabecalho" style={{backgroundColor:corDeFundo}}>
                 <Remove>
-                    <img src="/imagens/icon-lixo-preto.png" alt="colaborador" onClick={() => removeColaborador(nome)}/>
+                    <img src="/imagens/icon-lixo-preto.png" alt="colaborador" onClick={() => removeColaborador(id)}/>
                 </Remove>
                
                 {imagem === "" ? <div className="img-substituir" style={{backgroundColor:corDeFundo}}>{subsituir}</div> : <img src={imagem} alt={nome} className="img-artista" />}

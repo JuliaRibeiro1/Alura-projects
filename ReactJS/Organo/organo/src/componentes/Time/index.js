@@ -12,7 +12,7 @@ const Time = ({nome,corPrimaria,corSecundaria,colaboradores,removeColaborador,re
             {nome}
         </h3>
         <div className="colaboradores">
-            {colaboradores.map(item => <Colaborador key={nome} {...item} corDeFundo = {corPrimaria} removeColaborador={removeColaborador} />)}
+            {colaboradores.map(item => <Colaborador {...item} corDeFundo = {corPrimaria} removeColaborador={removeColaborador} />)}
         </div>
         
     </section> : ""

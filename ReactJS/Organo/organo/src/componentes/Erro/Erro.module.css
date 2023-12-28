@@ -1,7 +1,7 @@
 .erro {
     color: rgb(255, 42, 14);
     margin: .5em 1em;
-    animation: shake 1s ;
+    animation: shake 1s ease-in;
 }
 
 @keyframes shake {

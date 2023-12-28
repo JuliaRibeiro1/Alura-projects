@@ -3,7 +3,6 @@ import "./CampoTexto.css"
 import React from "react"
 
 const CampoTexto = ({valor,label,nome,placeholder,onChange,erro,onBlur}) => {
-console.log(erro)
     return (
         
         <div className="campo-texto">

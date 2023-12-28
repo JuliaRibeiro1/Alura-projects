@@ -6,6 +6,8 @@ import "./Formulario.css"
 import SeletorCor from "../SeletorCor"
 import Checkbox from "../Checkbox"
 import useForm from "../../hooks/useForm"
+import uuid from 'react-uuid';
+import useConfirm from "../../hooks/useConfirm"
 
 const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
 
@@ -19,20 +21,21 @@ const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
     const corSecundaria = useForm("corSecundaria")
 
     const aoSalvar = (e) => {
-        e.preventDefault()
-      if(nome.validate() && time.validate() && timeAlternativo.validate() ) {
+     e.preventDefault()
+     if(nome.validate() && time.validate()  ) {
+        const id = uuid()
             setTextoButao(prev => !prev)
             setTimeout(() => {
-                setTextoButao(prev => !prev)
+            setTextoButao(prev => !prev)
               
            const timeFinal = time.valor === "Outro" ? timeAlternativo.valor : time.valor
-    console.log(time.valor === "Outro")
             if(checkBox.valor) {
                 addCor(timeFinal, corPrimaria.valor, corSecundaria.valor)
             }
 
             aoColaboradorCadastrado({
-                key:nome.valor,
+                key:id,
+                id:id,
                 nome:nome.valor,
                 imagem:imagem.valor,
                 time:timeFinal
@@ -45,15 +48,14 @@ const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
                   corSecundaria: checkBox.valor ? corSecundaria.valor : '#1a4463'
                 }
         ) 
-    },1500) 
-}
+    },1500) }
     }
    
     const [textoButao, setTextoButao] = React.useState(false)
-    console.log(checkBox)
+    const con = useConfirm("ooiii")
     return (
-      
         <section id="formularioId">
+           
             <div className="formulario" >
             <form onSubmit={aoSalvar}>
             <h2>Preencha os dados para criar o card da banda ou cantor(a)</h2>
@@ -103,7 +105,6 @@ const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
                 <SeletorCor 
                     label="Cor primária" 
                     {...corPrimaria}
-                
                 />
                 <SeletorCor 
                     label="Cor secundária" 
@@ -111,7 +112,7 @@ const Formulario = ({addCor,aoColaboradorCadastrado,setNovoTime,timeLista}) => {
                 />
             </div>
            }
-
+            
            {textoButao  ? <button className="botao animar" disabled><img src="/imagens/icon-feito.png" alt="icone feito"/> </button> : <button className="botao">Criar card</button>}
            
             </form>
